@@ -69,6 +69,20 @@ class _SignupPageState extends State<SignupPage> {
 
                         SizedBox(height: 18.h),
 
+                        _buildUploadProfilePicture(),
+
+                        SizedBox(height: 4.h),
+                        GetBuilder<SignupPageController>(
+                          init: SignupPageController(),
+                          builder: (controller) {
+                            return Text(
+                              controller.profileImage?.files.first.name ?? "",
+                            );
+                          },
+                        ),
+
+                        SizedBox(height: 18.h),
+
                         _buildEmailInput(),
                         SizedBox(height: 12.h),
 
@@ -77,7 +91,9 @@ class _SignupPageState extends State<SignupPage> {
                         SizedBox(height: 20.h),
 
                         _buildSignupButton(),
+
                         SizedBox(height: 8.h),
+
                         InkWell(
                           onTap: () {
                             context.go(AppRoutes.loginRoute);
@@ -99,6 +115,49 @@ class _SignupPageState extends State<SignupPage> {
           ),
         ),
       ),
+    );
+  }
+
+  GetBuilder<SignupPageController> _buildUploadProfilePicture() {
+    return GetBuilder<SignupPageController>(
+      init: SignupPageController(),
+      builder: (controller) {
+        return InkWell(
+          onTap: () async {
+            await controller.pickProfileImage();
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8.r),
+              border: Border.all(color: Colors.black.withValues(alpha: .2)),
+            ),
+            child: Row(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8.r),
+                      bottomLeft: Radius.circular(8.r),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Upload profile picture",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
