@@ -115,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
 
         onPressed: () {
-          context.go(AppRoutes.homeRoute);
+          context.go(AppRoutes.bottomNavBarRoute);
         },
         child: Text("Login", style: TextStyle(fontSize: 16.sp)),
       ),

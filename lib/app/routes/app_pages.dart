@@ -1,5 +1,6 @@
 import 'package:flutter_service_box/app/modules/bottom_navbar/views/bottom_navbar.dart';
 import 'package:flutter_service_box/app/modules/login/views/login_page.dart';
+import 'package:flutter_service_box/app/modules/search/views/search_page.dart';
 import 'package:flutter_service_box/app/modules/signup/views/signup_page.dart';
 import 'package:go_router/go_router.dart';
 import '../modules/home/views/home_page.dart';
@@ -32,6 +33,13 @@ class AppPages {
       path: AppRoutes.bottomNavBarRoute,
       builder: (context, state) {
         return BottomNavbar();
+      },
+      routes: [],
+    ),
+    GoRoute(
+      path: AppRoutes.searchRoute,
+      builder: (context, state) {
+        return SearchPage();
       },
       routes: [],
     ),
