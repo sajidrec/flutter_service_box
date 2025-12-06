@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GoRouter router = GoRouter(
-      initialLocation: AppRoutes.homeRoute,
+      initialLocation: AppRoutes.bottomNavBarRoute,
       routes: AppPages.pages,
     );
 
